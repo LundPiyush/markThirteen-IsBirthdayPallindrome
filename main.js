@@ -164,6 +164,9 @@ function getPreviousPalindrome(date){
 function checkIsBirthdayPallindrome(){
     if(inputDOB.value === '')
         message.innerText = 'Enter the valid bithdate'
+    else{
+        
+    }
     
 }
 
