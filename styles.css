@@ -1,0 +1,46 @@
+:root{
+    --primary-color: #4338ca;
+    --dark-grey: #64748b;
+    --light-blue: #a6e1fa;
+    --light-grey: #f1f5f9;
+    --white: #FFFFFF;
+}
+body{
+    background-color: var(--light-grey);
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+.heading{
+    font-size: x-large;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+input, label, button{
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+#input-dob{
+    height: 2rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem; 
+}
+
+.btn-submit{
+    width: 7rem;
+    height: 3rem;
+    border: 1px solid var(--white);
+    border-radius: 1rem;
+    font-weight: bold;
+    color: var(--white);
+    background-color: var(--primary-color);
+}
+
+.output-message{
+    font-size: large;
+    font-weight: bold;
+}

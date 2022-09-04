@@ -104,7 +104,7 @@ function getPreviousDate(date){
     var year = date.year;
 
     if (month === 3)
-        if (isLeapYear(year)){
+        if (isLeapyear(year)){
             if(day === 0){
                 day = 29;
                 month = 2;
@@ -158,13 +158,40 @@ function getPreviousPalindrome(date){
             break;
         prevDate = getPreviousDate(prevDate);
     }
-    return [count, previousDate];
+    return [count, prevDate];
 }
 
 function checkIsBirthdayPallindrome(){
-    if(inputDOB.value === '')
-        message.innerText = 'Enter the valid bithdate'
+    var inputDOBValue = inputDOB.value
+    if(inputDOBValue === '')
+        message.innerText = 'Enter the valid birth date'
     else{
+        var date = inputDOBValue.split("-");
+        var day = date[2];
+        var month = date[1];
+        var year = date[0];
+
+        var date ={
+            day : Number(day),
+            month : Number(month),
+            year : Number(year)
+        }
+        var result = checkPalindromesForAllDateFormats(date)
+        if(result){
+            message.innerText = "Yay! Your birthdate is pallindrome 🥳🥳";
+        }
+        else{
+            var nextPallindrome = getNextPalindrome(date);
+            var prevPallindrome = getPreviousPalindrome(date)
+            var nextPallindromeStr = dateToString(nextPallindrome[1]);
+            var prevPallindromeStr = dateToString(prevPallindrome[1]);
+            if(nextPallindrome[0]>prevPallindrome){
+                message.innerText = `Opps ! you birthdate is not pallindrome. Nearest Pallindrome near to your birthday is ${nextPallindromeStr.day}-${nextPallindromeStr.month}-${nextPallindromeStr.year}. You missed by ${nextPallindrome[0]} days`
+            }
+            else{
+                message.innerText = `Opps ! your birthdate is not pallindrome. Nearest Pallindrome near to your birthday is ${prevPallindromeStr.day}-${prevPallindromeStr.month}-${prevPallindromeStr.year}. You missed by ${prevPallindrome[0]} days`
+            }
+        }
         
     }
     
