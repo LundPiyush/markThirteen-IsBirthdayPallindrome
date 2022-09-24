@@ -85,6 +85,7 @@ function getNextDate(date){
     }
 
     if(month > 12){
+        day=1
         month = 1
         year++
     }
@@ -185,16 +186,14 @@ function checkIsBirthdayPallindrome(){
             var prevPallindrome = getPreviousPalindrome(date)
             var nextPallindromeStr = dateToString(nextPallindrome[1]);
             var prevPallindromeStr = dateToString(prevPallindrome[1]);
-            if(nextPallindrome[0]>prevPallindrome){
+            if(nextPallindrome[0]>prevPallindrome[0]){
                 message.innerText = `Opps ! you birthdate is not pallindrome. Nearest Pallindrome near to your birthday is ${nextPallindromeStr.day}-${nextPallindromeStr.month}-${nextPallindromeStr.year}. You missed by ${nextPallindrome[0]} days`
             }
             else{
                 message.innerText = `Opps ! your birthdate is not pallindrome. Nearest Pallindrome near to your birthday is ${prevPallindromeStr.day}-${prevPallindromeStr.month}-${prevPallindromeStr.year}. You missed by ${prevPallindrome[0]} days`
             }
-        }
-        
+        } 
     }
-    
 }
 
 btnCheck.addEventListener("click",checkIsBirthdayPallindrome)
